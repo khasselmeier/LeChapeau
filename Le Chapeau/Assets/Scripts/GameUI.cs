@@ -13,20 +13,14 @@ public class GameUI : MonoBehaviour
     // instance
     public static GameUI instance;
 
-    void Awake()
+    private void Awake()
     {
-        // set the instance to this script
         instance = this;
     }
 
-    void Start()
+    private void Start()
     {
         InitializePlayerUI();
-    }
-
-    void Update()
-    {
-        UpdatePlayerUI();
     }
 
     void InitializePlayerUI()
@@ -44,19 +38,24 @@ public class GameUI : MonoBehaviour
                 container.hatTimeSlider.maxValue = GameManager.instance.timeToWin;
             }
             else
-            {
                 container.obj.SetActive(false);
-            }
         }
+    }
+
+    private void Update()
+    {
+        UpdatePlayerUI();
     }
 
     void UpdatePlayerUI()
     {
         // loop through all players
-        for(int x = 0; x < GameManager.instance.players.Length; ++x)
+        for(int x=0; x < GameManager.instance.players.Length; ++x)
         {
             if(GameManager.instance.players[x] != null)
+            {
                 playerContainers[x].hatTimeSlider.value = GameManager.instance.players[x].curHatTime;
+            }
         }
     }
 

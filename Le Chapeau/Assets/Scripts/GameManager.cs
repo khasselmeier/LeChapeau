@@ -23,13 +23,13 @@ public class GameManager : MonoBehaviourPunCallbacks
     // instance
     public static GameManager instance;
 
-    void Awake()
+    private void Awake()
     {
         // instance
         instance = this;
     }
 
-    void Start()
+    private void Start()
     {
         players = new PlayerControllerScript[PhotonNetwork.PlayerList.Length];
         photonView.RPC("ImInGame", RpcTarget.AllBuffered);
@@ -96,6 +96,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     {
         gameEnded = true;
         PlayerControllerScript player = GetPlayer(playerID);
+
         GameUI.instance.SetWinText(player.photonPlayer.NickName);
 
         Invoke("GoBackToMenu", 3.0f);

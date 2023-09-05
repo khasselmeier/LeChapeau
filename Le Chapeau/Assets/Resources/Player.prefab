@@ -319,8 +319,9 @@ MonoBehaviour:
   prefixField: -1
   Synchronization: 3
   OwnershipTransfer: 0
-  observableSearch: 2
+  observableSearch: 0
   ObservedComponents:
+  - {fileID: 6654266716780509090}
   - {fileID: 6654266716780509097}
   sceneViewId: 0
   InstantiationId: 0
